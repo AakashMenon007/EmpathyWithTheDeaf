@@ -1,0 +1,19 @@
+{
+    "name": "HapticPatterns.Samples",
+    "rootNamespace": "HapticPatterns.Samples",
+    "references": [
+        "GUID:513ec6e308a640c47a0bc0ddf7b12e48",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:fe685ec1767f73d42b749ea8045bfe43",
+        "GUID:73c9d4de77951db4498029fb6ce8eb53"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

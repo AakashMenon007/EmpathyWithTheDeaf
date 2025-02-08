@@ -2789,6 +2789,17 @@
                     "action": "SeismoButton",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "219cc127-d311-41d9-b8dc-7f2586300d84",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SeismoButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
