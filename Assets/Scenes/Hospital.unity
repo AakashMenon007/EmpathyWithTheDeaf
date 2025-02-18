@@ -532,7 +532,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 714627409}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 868044090}
   m_SourcePrefab: {fileID: 100100000, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
 --- !u!1001 &531090276
 PrefabInstance:
@@ -1078,6 +1081,7 @@ GameObject:
   - component: {fileID: 714627409}
   - component: {fileID: 714627408}
   - component: {fileID: 714627407}
+  - component: {fileID: 714627410}
   m_Layer: 0
   m_Name: Volume
   m_TagString: Untagged
@@ -1138,6 +1142,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 868044085}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &714627410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714627406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5846ef42748bf45a1d2e733647a090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {fileID: 714627407}
+  duration: 10
 --- !u!1 &715593960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 167585832470169600, guid: b5495016005000947933cd530ba82060, type: 3}
@@ -1275,6 +1293,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: ebb9e1bda7b1e6e47838100299d7ebde, type: 3}
+--- !u!1 &783095813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 467532265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &863682595 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7652071255469955536, guid: b5495016005000947933cd530ba82060, type: 3}
@@ -1413,6 +1436,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1767192434, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
   m_PrefabInstance: {fileID: 467532265}
   m_PrefabAsset: {fileID: 0}
+--- !u!81 &868044088 stripped
+AudioListener:
+  m_CorrespondingSourceObject: {fileID: 1767192437, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 467532265}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &868044090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783095813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c935d7f89695f114f8d4c274f58fcb71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 10
+  startSimulation: 1
+  maxDistortion: 0.8
+  minCutoffFrequency: 300
+  echoDelay: 500
+  echoDecay: 0.5
+  targetAudioListener: {fileID: 868044088}
 --- !u!1 &946075807 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3771742826302585413, guid: b5495016005000947933cd530ba82060, type: 3}

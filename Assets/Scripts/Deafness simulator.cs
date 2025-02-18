@@ -17,6 +17,9 @@ public class DeafnessSimulatorListener : MonoBehaviour
     public float echoDelay = 500f;
     public float echoDecay = 0.5f;
 
+    [Header("Audio Setup")]
+    public AudioListener targetAudioListener; // Drag and drop the AudioListener here
+
     private AudioDistortionFilter distortionFilter;
     private AudioLowPassFilter lowPassFilter;
     private AudioEchoFilter echoFilter;
@@ -24,10 +27,18 @@ public class DeafnessSimulatorListener : MonoBehaviour
 
     void Start()
     {
-        // Attach audio filters to the AudioListener
-        distortionFilter = gameObject.AddComponent<AudioDistortionFilter>();
-        lowPassFilter = gameObject.AddComponent<AudioLowPassFilter>();
-        echoFilter = gameObject.AddComponent<AudioEchoFilter>();
+        if (targetAudioListener == null)
+        {
+            Debug.LogError("No AudioListener assigned! Please drag and drop an AudioListener in the Inspector.");
+            return;
+        }
+
+        // Attach audio filters to the target AudioListener
+        GameObject listenerObject = targetAudioListener.gameObject;
+
+        distortionFilter = listenerObject.AddComponent<AudioDistortionFilter>();
+        lowPassFilter = listenerObject.AddComponent<AudioLowPassFilter>();
+        echoFilter = listenerObject.AddComponent<AudioEchoFilter>();
 
         // Initialize filters
         distortionFilter.distortionLevel = 0f;
@@ -40,6 +51,13 @@ public class DeafnessSimulatorListener : MonoBehaviour
     {
         if (startSimulation)
         {
+            if (targetAudioListener == null)
+            {
+                Debug.LogWarning("AudioListener not assigned. Simulation cannot proceed.");
+                startSimulation = false;
+                return;
+            }
+
             elapsedTime += Time.deltaTime;
             float progress = Mathf.Clamp01(elapsedTime / duration);
 
@@ -68,6 +86,12 @@ public class DeafnessSimulatorListener : MonoBehaviour
     // Public method to trigger the simulation
     public void StartDeafnessSimulation()
     {
+        if (targetAudioListener == null)
+        {
+            Debug.LogError("No AudioListener assigned! Cannot start simulation.");
+            return;
+        }
+
         startSimulation = true;
         elapsedTime = 0f;
         Debug.Log("Deafness Simulation Started.");
