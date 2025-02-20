@@ -144,7 +144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &299639868
 Light:
   m_ObjectHideFlags: 0
@@ -1450,7 +1450,7 @@ MonoBehaviour:
   blueColor: {r: 0, g: 0, b: 1, a: 1}
   intensity: 30000
   strobeInterval: 0.2
-  startDelay: 35
+  startDelay: 38
 --- !u!114 &1852059217
 MonoBehaviour:
   m_ObjectHideFlags: 0
