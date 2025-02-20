@@ -1,0 +1,50 @@
+﻿title: Declaration
+tags:
+---
+<<declare $completedOnboarding to false as bool>>
+<<jump OnboardingStageOne>>
+===
+title:OnboardingStageOne
+tags:
+---
+
+Welcome to this VR Experience.#line:1
+
+Before we begin we will go through some onboarding exercises to make sure you are happy using the controls. #line:2
+
+Move to the Green Circle in front of you using the thumbstick on the left controller #line:3
+
+===
+
+title:OnboardingStageTwo
+Tags:
+---
+
+<<setup_stage_two Scriptholder>>
+
+Well Done, now move to the second green circle behind you - You can use the thumbstick on the right controller to turn. #line4
+
+
+===
+
+title:OnboardingStageThree
+tags:
+---
+<<setup_stage_three Scriptholder>>
+Good Job - Try picking up some of the objects on the table.#line5
+
+===
+
+title: OnboardingComplete
+tags:
+---
+
+Congatulations You have completed the Onboarding exercises.#line6
+
+You can start again or progress to the main experience.#line7
+
+->Begin Onboarding again
+    <<restart_onboarding Scriptholder>>
+->Start Main Experience
+    <<begin_main_experience Scriptholder>>
+===
