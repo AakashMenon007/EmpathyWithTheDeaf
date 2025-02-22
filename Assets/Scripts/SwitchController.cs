@@ -5,8 +5,8 @@ public class SwitchController : MonoBehaviour
 {
     public ParticleSystem fireParticleSystem; // Fire particle system
     public ParticleSystem steamParticleSystem; // Steam particle system
-    public Material offMaterial;
-    public Material onMaterial;
+    //public Material offMaterial;
+    //public Material onMaterial;
 
     private Renderer switchRenderer;
     private bool switchOn = false;
@@ -15,7 +15,7 @@ public class SwitchController : MonoBehaviour
     void Start()
     {
         switchRenderer = GetComponent<Renderer>();
-        switchRenderer.material = offMaterial;
+        //switchRenderer.material = offMaterial;
         fireParticleSystem.Stop();
         steamParticleSystem.Stop(); // Ensure steam is off initially
     }
@@ -31,7 +31,7 @@ public class SwitchController : MonoBehaviour
 
         if (switchOn)
         {
-            switchRenderer.material = onMaterial;
+            //switchRenderer.material = onMaterial;
             fireParticleSystem.Play();
 
             // Start steam after 5 seconds
@@ -40,7 +40,7 @@ public class SwitchController : MonoBehaviour
         }
         else
         {
-            switchRenderer.material = offMaterial;
+            //switchRenderer.material = offMaterial;
             fireParticleSystem.Stop();
             steamParticleSystem.Stop(); // Stop steam immediately
 
