@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HearingDogBehavior : MonoBehaviour
 {
@@ -54,8 +55,8 @@ public class HearingDogBehavior : MonoBehaviour
     IEnumerator MoveToTarget()
     {
         // Start moving to target
-        TriggerJump();
-        yield return new WaitForSeconds(jumpAnimationLength / 2);
+        //TriggerJump();
+        //yield return new WaitForSeconds(jumpAnimationLength / 2);
 
         SetWalking(true);
         navMeshAgent.SetDestination(targets[currentTargetIndex].position);
@@ -73,8 +74,8 @@ public class HearingDogBehavior : MonoBehaviour
 
                 // Resume movement
                 SetTailWag(false);
-                TriggerJump();
-                yield return new WaitForSeconds(jumpAnimationLength / 2);
+                //TriggerJump();
+                //yield return new WaitForSeconds(jumpAnimationLength / 2);
                 SetWalking(true);
                 navMeshAgent.isStopped = false;
                 navMeshAgent.SetDestination(targets[currentTargetIndex].position);
@@ -91,8 +92,8 @@ public class HearingDogBehavior : MonoBehaviour
     IEnumerator FollowPlayer()
     {
         SetTailWag(false);
-        TriggerJump();
-        yield return new WaitForSeconds(jumpAnimationLength / 2);
+        //TriggerJump();
+        //yield return new WaitForSeconds(jumpAnimationLength / 2);
 
         SetWalking(true);
         float followTimer = 0f;

@@ -1,53 +1,62 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class SwitchController : MonoBehaviour
 {
-    public ParticleSystem fireParticleSystem; // Fire particle system
-    public ParticleSystem steamParticleSystem; // Steam particle system
-    //public Material offMaterial;
-    //public Material onMaterial;
+    public ParticleSystem fireParticleSystem;
+    public ParticleSystem steamParticleSystem;
+    public FireAlarmController fireAlarm; // Reference to FireAlarmController
 
-    private Renderer switchRenderer;
     private bool switchOn = false;
     private Coroutine steamCoroutine;
+    private Coroutine alarmCoroutine;
 
     void Start()
     {
-        switchRenderer = GetComponent<Renderer>();
-        //switchRenderer.material = offMaterial;
         fireParticleSystem.Stop();
-        steamParticleSystem.Stop(); // Ensure steam is off initially
+        steamParticleSystem.Stop();
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        ToggleSwitch();
-    }
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    ToggleSwitch();
+    //}
 
-    void ToggleSwitch()
+    public void ToggleSwitch()
     {
         switchOn = !switchOn;
 
         if (switchOn)
         {
-            //switchRenderer.material = onMaterial;
             fireParticleSystem.Play();
 
-            // Start steam after 5 seconds
             if (steamCoroutine != null) StopCoroutine(steamCoroutine);
-            steamCoroutine = StartCoroutine(ActivateSteamAfterDelay(5f));
+            steamCoroutine = StartCoroutine(ActivateSteamAfterDelay(3f));
+
+            if (alarmCoroutine != null) StopCoroutine(alarmCoroutine);
+            alarmCoroutine = StartCoroutine(StartFireAlarmAfterDelay(10f));
         }
         else
         {
-            //switchRenderer.material = offMaterial;
             fireParticleSystem.Stop();
-            steamParticleSystem.Stop(); // Stop steam immediately
+            steamParticleSystem.Stop();
 
             if (steamCoroutine != null)
             {
                 StopCoroutine(steamCoroutine);
                 steamCoroutine = null;
+            }
+
+            if (alarmCoroutine != null)
+            {
+                StopCoroutine(alarmCoroutine);
+                alarmCoroutine = null;
+            }
+
+            if (fireAlarm != null)
+            {
+                fireAlarm.StopAlarm(); // Stop alarm if switch is turned off
             }
         }
     }
@@ -55,6 +64,15 @@ public class SwitchController : MonoBehaviour
     IEnumerator ActivateSteamAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        steamParticleSystem.Play(); // Start steam after delay
+        steamParticleSystem.Play();
+    }
+
+    IEnumerator StartFireAlarmAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (fireAlarm != null)
+        {
+            fireAlarm.StartAlarm(); // Trigger the alarm after delay
+        }
     }
 }
