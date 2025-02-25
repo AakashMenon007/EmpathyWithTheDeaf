@@ -1,0 +1,39 @@
+﻿title: HouseScript
+tags:
+---
+<<declare $firstScene to false as bool>>
+<<jump HouseScene1>>
+
+===
+title:Intro
+tags:
+---
+if $firstScene is false  
+    <<set $firstScene to true>>
+    <<jump HouseScene1>>
+else
+    <<jump HouseScene2>>
+
+===
+title:HouseScene1
+tags:
+---
+
+Welcome to the House Experience, where you will play as a Deaf Person.
+Interact with house activities which is sound intense -
+Kettle, Phone, Answering Door.  
+
+<<set $firstScene to false>>
+
+===
+title:HouseScene2
+tags:
+---
+
+Welcome back to the House Experience, where you will play as a Deaf Person.
+You will have an assistance companien dog to help you out with daily activities
+Interact with house activities  -
+Kettle, Phone, Answering Door.  
+
+===
+
