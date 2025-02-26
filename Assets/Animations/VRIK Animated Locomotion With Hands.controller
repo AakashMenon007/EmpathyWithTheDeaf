@@ -34,7 +34,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: R_Hand_Pose
+    m_ConditionEvent: Left Grab
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7202451826748342342}
@@ -88,7 +88,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: L_Hand_Pose
+    m_ConditionEvent: Left Pinch
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5847609501753156381}
@@ -142,7 +142,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 7
-    m_ConditionEvent: L_Hand_Pose
+    m_ConditionEvent: Left Pinch
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6725735894798134717}
@@ -267,7 +267,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: R_Hand_Pose
+    m_ConditionEvent: Left Grab
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -563173114623643436}
@@ -485,7 +485,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 7
-    m_ConditionEvent: L_Hand_Pose
+    m_ConditionEvent: Left Pinch
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6725735894798134717}
@@ -510,7 +510,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 7
-    m_ConditionEvent: R_Hand_Pose
+    m_ConditionEvent: Left Grab
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2502153141041339074}
@@ -648,13 +648,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: L_Hand_Grip
+  - m_Name: Left Grab
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: L_Hand_Trigger
+  - m_Name: Left Pinch
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -666,13 +666,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: R_Hand_Grip
+  - m_Name: Right Grab
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: R_Hand_Trigger
+  - m_Name: Right Pinch
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -1016,8 +1016,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRIK_Turn
     m_Mirror: 0
-  m_BlendParameter: R_Hand_Grip
-  m_BlendParameterY: R_Hand_Trigger
+  m_BlendParameter: Right Grab
+  m_BlendParameterY: Right Pinch
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
@@ -1341,7 +1341,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 7
-    m_ConditionEvent: R_Hand_Pose
+    m_ConditionEvent: Left Grab
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2502153141041339074}
@@ -1406,7 +1406,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 7
-    m_ConditionEvent: R_Hand_Pose
+    m_ConditionEvent: Left Grab
     m_EventTreshold: 3
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2502153141041339074}
@@ -1537,7 +1537,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: R_Hand_Pose
+    m_ConditionEvent: Left Grab
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2114052148166999726}
@@ -1612,7 +1612,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: L_Hand_Pose
+    m_ConditionEvent: Left Pinch
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3311753371143627801}
@@ -1714,7 +1714,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: L_Hand_Pose
+    m_ConditionEvent: Left Pinch
     m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 587688942849104153}
@@ -1739,7 +1739,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 7
-    m_ConditionEvent: L_Hand_Pose
+    m_ConditionEvent: Left Pinch
     m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6725735894798134717}
@@ -1891,8 +1891,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRIK_Turn
     m_Mirror: 0
-  m_BlendParameter: L_Hand_Grip
-  m_BlendParameterY: L_Hand_Trigger
+  m_BlendParameter: Left Grab
+  m_BlendParameterY: Left Pinch
   m_MinThreshold: 0
   m_MaxThreshold: 0.75
   m_UseAutomaticThresholds: 1
