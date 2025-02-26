@@ -31,9 +31,48 @@ tags:
 ---
 
 Welcome back to the House Experience, where you will play as a Deaf Person.
-You will have an assistance companien dog to help you out with daily activities
+You will have an assistant dog to help you out with daily activities.
 Interact with house activities  -
 Kettle, Phone, Answering Door.  
+
+===
+
+title:Kettle
+tags:
+---
+
+Pick the Kettle and place it on stove and turn on the knob.  
+
+===
+
+title:Phone1
+tags:
+---
+
+Pick the Kettle and place it on stove and turn on the knob.
+Phone message  
+
+===
+
+title:Phone2
+tags:
+---
+
+Pick the Kettle and place it on stove and turn on the knob.
+Phone message  
+
+===
+
+title:NPCDoor
+tags:
+---
+
+Hi,
+-> Hi
+
+You have got a parcle to collect.
+
+Please rate your experience.
 
 ===
 
