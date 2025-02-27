@@ -772,7 +772,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6703baf993e0db844afd7d8316e17755, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fc8c593441746aa4ea6e5eab00c7ffc0, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -783,7 +783,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 26.251987
-  MaxDistance: 34.305206
+  MaxDistance: 180.64783
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1847,9 +1847,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redColor: {r: 1, g: 0, b: 0, a: 1}
   blueColor: {r: 0, g: 0, b: 1, a: 1}
-  intensity: 30000
+  intensity: 40000
   strobeInterval: 0.2
-  startDelay: 44
+  startDelay: 58
 --- !u!114 &1852059217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1962,7 +1962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9c8b931daf25d45a5260d39a624294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 53
+  delayTime: 70
   targetSceneName: Hospital
 --- !u!1 &1917708513
 GameObject:
