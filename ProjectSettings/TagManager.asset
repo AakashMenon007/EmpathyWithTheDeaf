@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Anchor
   - Canvas
+  - Projectile
+  - Destroyer
+  - Water
+  - Flame
+  - TV
+  - Dialogue Canvas
   layers:
   - Default
   - TransparentFX

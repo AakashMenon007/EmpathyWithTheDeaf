@@ -8,10 +8,10 @@ tags:
 title:Intro
 tags:
 ---
-if $firstScene is false  
+if $firstScene is false   #line:0585746 
     <<set $firstScene to true>>
     <<jump HouseScene1>>
-else
+else #line:0a81837 
     <<jump HouseScene2>>
 
 ===
@@ -19,9 +19,9 @@ title:HouseScene1
 tags:
 ---
 
-Welcome to the House Experience, where you will play as a Deaf Person.
-Interact with house activities which is sound intense -
-Kettle, Phone, Answering Door.  
+Welcome to the House Experience, where you will play as a Deaf Person. #line:060df1d 
+Interact with house activities which is sound intense - #line:0c37c67 
+Kettle, Phone, Answering Door.   #line:032b05d 
 
 <<set $firstScene to false>>
 
@@ -30,10 +30,10 @@ title:HouseScene2
 tags:
 ---
 
-Welcome back to the House Experience, It was difficult to take care of things.
-This time You will have an assistant dog to help you out with daily activities.
-Interact with house activities -
-Kettle, Phone, Answering Door.  
+Welcome back to the House Experience, It was difficult to take care of things. #line:0e08f24 
+This time You will have an assistant dog to help you out with daily activities. #line:04660e2 
+Interact with house activities - #line:0cb9ff0 
+Kettle, Phone, Answering Door.   #line:003c1cc 
 
 ===
 
@@ -41,7 +41,7 @@ title:Kettle
 tags:
 ---
 
-Pick the Kettle and place it on stove and turn on the knob.  
+Pick the Kettle and place it on stove and turn on the knob.   #line:04107e7 
 
 ===
 
@@ -49,8 +49,8 @@ title:Phone1
 tags:
 ---
 
-Pick the Kettle and place it on stove and turn on the knob.
-Phone message  
+Pick the Kettle and place it on stove and turn on the knob. #line:07e0662 
+Phone message   #line:0e21ab6 
 
 ===
 
@@ -58,8 +58,8 @@ title:Phone2
 tags:
 ---
 
-Pick the Kettle and place it on stove and turn on the knob.
-Phone message  
+Pick the Kettle and place it on stove and turn on the knob. #line:0a09187 
+Phone message   #line:0cc1d7a 
 
 ===
 
@@ -67,12 +67,12 @@ title:NPCDoor
 tags:
 ---
 
-Hi,
--> Hi
+Hi, #line:023c2e8 
+-> Hi #line:050d027 
 
-You have got a parcle to collect.
+You have got a parcle to collect. #line:0b044d4 
 
-Please rate your experience.
+Please rate your experience. #line:0e1e4ad 
 
 ===
 

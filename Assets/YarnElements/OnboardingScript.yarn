@@ -3,48 +3,66 @@ tags:
 ---
 <<declare $completedOnboarding to false as bool>>
 <<jump OnboardingStageOne>>
+
 ===
-title:OnboardingStageOne
+title: OnboardingStageOne
 tags:
 ---
+Welcome, You are about to embark on a journey through Silent Awakening. Before we begin, let us familiarize you with the basics of movement and interaction. #line:1 
 
-Welcome to this VR Experience.#line:1
+To move, use the thumbstick on your left controller. Walk towards the glowing Green Circle ahead of you. Take your time. #line:2 
 
-Before we begin we will go through some onboarding exercises to make sure you are happy using the controls. #line:2
-
-Move to the Green Circle in front of you using the thumbstick on the left controller #line:3
-
-===
-
-title:OnboardingStageTwo
-Tags:
----
-
-<<setup_stage_two Scriptholder>>
-
-Well Done, now move to the second green circle behind you - You can use the thumbstick on the right controller to turn. #line4
-
+When ready, move forward. #line:3 
 
 ===
-
-title:OnboardingStageThree
+title: OnboardingStageTwo
 tags:
 ---
-<<setup_stage_three Scriptholder>>
-Good Job - Try picking up some of the objects on the table.#line5
+<<setup_stage_two ScriptHandler>>
+
+Excellent. Now, let’s practice turning. #line:4
+
+Use the thumbstick on your right controller to turn your view and align yourself with the second glowing Green Circle behind you. Feel free to adjust until you are comfortable. #line:5
+
+Proceed when ready. #line:6 
 
 ===
+title: OnboardingStageThree
+tags:
+---
+<<setup_stage_three ScriptHandler>>
 
+Well done. Interaction is key in this experience. #line:7
+
+Look to your left. You’ll find a table with objects resting upon it. Reach out with your hand and press the trigger button to pick up an object. Experiment by picking up and placing down a few items. #line:8
+
+Continue once you’re comfortable. #line:9 
+
+===
+title: OnboardingStageFour
+tags:
+---
+<<setup_stage_four ScriptHandler>>
+
+You’re doing great. Now, let’s combine movement and interaction. #line:10
+
+Ahead of you is a glowing artifact. Move towards it using your left thumbstick and pick it up with the trigger button. Once picked up, examine it closely. Take note of its intricate design – details like this will guide you throughout your journey. #line:11 
+
+When ready, proceed. #line:12 
+
+===
 title: OnboardingComplete
 tags:
 ---
+Congratulations, traveler. You’ve completed the onboarding exercises. #line:13
 
-Congatulations You have completed the Onboarding exercises.#line6
+From this moment on, the path forward is yours to explore. Choose how you wish to proceed: 
 
-You can start again or progress to the main experience.#line7
+-> Begin Onboarding Again #line:14
+    <<restart_onboarding ScriptHandler>>
+-> Begin the Main Experience #line:15 
+    <<begin_main_experience ScriptHandler>>
 
-->Begin Onboarding again
-    <<restart_onboarding Scriptholder>>
-->Start Main Experience
-    <<begin_main_experience Scriptholder>>
+Prepare yourself. The Experience begins now. #line:16
+
 ===

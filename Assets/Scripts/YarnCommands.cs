@@ -11,35 +11,37 @@ public class YarnCommands : MonoBehaviour
 
     public void StartNextOnboardingStage(string nextOnboardingStage)
     {
+        Debug.Log($"Starting dialogue: {nextOnboardingStage}");
         dialogueRunner.StartDialogue(nextOnboardingStage);
     }
 
     [YarnCommand("setup_stage_two")]
     public void SetupStageTwo()
     {
+        Debug.Log("Executing setup_stage_two command.");
         stageOneCircle.SetActive(false);
         stageTwoCircle.SetActive(true);
-
     }
 
     [YarnCommand("setup_stage_three")]
     public void SetupStageThree()
     {
+        Debug.Log("Executing setup_stage_three command.");
         stageTwoCircle.SetActive(false);
         stageThreeObject.SetActive(true);
     }
-    [YarnCommand("Restart Onboarding")]
-     public void RestartOnboarding()
+
+    [YarnCommand("restart_onboarding")]
+    public void RestartOnboarding()
     {
+        Debug.Log("Restarting onboarding.");
         SceneManager.LoadScene("onboardingDemo");
     }
 
     [YarnCommand("begin_main_experience")]
     public void BeginMainExperience()
     {
+        Debug.Log("Beginning main experience.");
         SceneManager.LoadScene(1);
     }
-
-
-
 }
