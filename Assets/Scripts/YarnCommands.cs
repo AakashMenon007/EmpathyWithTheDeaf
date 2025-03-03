@@ -18,7 +18,8 @@ public class YarnCommands : MonoBehaviour
     [YarnCommand("setup_stage_two")]
     public void SetupStageTwo()
     {
-        Debug.Log("Executing setup_stage_two command.");
+        Debug.Log("Executing se" +
+            "tup_stage_two command.");
         stageOneCircle.SetActive(false);
         stageTwoCircle.SetActive(true);
     }
