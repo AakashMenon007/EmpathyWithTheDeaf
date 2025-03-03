@@ -20,15 +20,13 @@ public class HearingDogBehavior : MonoBehaviour
     private bool isFollowingPlayer;
     private Coroutine behaviorRoutine;
 
+    public SwitchController switchController;
+
     void Start()
     {
         if (targets.Length > 0 && player != null)
         {
             behaviorRoutine = StartCoroutine(DogBehaviorSequence());
-        }
-        else
-        {
-            Debug.LogError("Missing targets or player reference!");
         }
     }
 
@@ -38,7 +36,7 @@ public class HearingDogBehavior : MonoBehaviour
         SetTailWag(true);
         yield return new WaitForSeconds(2f);
 
-        while (true)
+        if (switchController.switchOn)
         {
             // Move to current target
             yield return StartCoroutine(MoveToTarget());

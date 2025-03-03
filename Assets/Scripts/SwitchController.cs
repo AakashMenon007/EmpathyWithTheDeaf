@@ -1,14 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VRTemplate;
 using UnityEngine;
 
 public class SwitchController : MonoBehaviour
 {
     public ParticleSystem fireParticleSystem;
     public ParticleSystem steamParticleSystem;
-    public FireAlarmController fireAlarm; // Reference to FireAlarmController
+    public FireAlarmController fireAlarm; // Reference to the separate fire alarm script
 
-    private bool switchOn = false;
+    // Public variables for delay times
+    public float steamDelay = 3f;   // Time delay before steam starts
+    public float alarmDelay = 10f;  // Time delay before the fire alarm starts
+
+    public bool switchOn = false;
     private Coroutine steamCoroutine;
     private Coroutine alarmCoroutine;
 
@@ -18,24 +24,26 @@ public class SwitchController : MonoBehaviour
         steamParticleSystem.Stop();
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    ToggleSwitch();
-    //}
+    void OnTriggerEnter(Collider other)
+    {
+        ToggleSwitch();
+    }
+
+    private XRKnob knob;
 
     public void ToggleSwitch()
     {
         switchOn = !switchOn;
 
-        if (switchOn)
+        if (switchOn && knob.value == 1)
         {
             fireParticleSystem.Play();
 
             if (steamCoroutine != null) StopCoroutine(steamCoroutine);
-            steamCoroutine = StartCoroutine(ActivateSteamAfterDelay(3f));
+            steamCoroutine = StartCoroutine(ActivateSteamAfterDelay(steamDelay));
 
             if (alarmCoroutine != null) StopCoroutine(alarmCoroutine);
-            alarmCoroutine = StartCoroutine(StartFireAlarmAfterDelay(10f));
+            alarmCoroutine = StartCoroutine(StartFireAlarmAfterDelay(alarmDelay));
         }
         else
         {
@@ -56,7 +64,7 @@ public class SwitchController : MonoBehaviour
 
             if (fireAlarm != null)
             {
-                fireAlarm.StopAlarm(); // Stop alarm if switch is turned off
+                fireAlarm.StopAlarm(); // Stop the fire alarm (blinking light) if running
             }
         }
     }
@@ -65,6 +73,7 @@ public class SwitchController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         steamParticleSystem.Play();
+        Debug.Log("Kettle Steam activated");
     }
 
     IEnumerator StartFireAlarmAfterDelay(float delay)
@@ -72,7 +81,8 @@ public class SwitchController : MonoBehaviour
         yield return new WaitForSeconds(delay);
         if (fireAlarm != null)
         {
-            fireAlarm.StartAlarm(); // Trigger the alarm after delay
+            fireAlarm.StartAlarm(); // Trigger the blinking red light alarm
+            Debug.Log("Fire Alarm activated");
         }
     }
 }

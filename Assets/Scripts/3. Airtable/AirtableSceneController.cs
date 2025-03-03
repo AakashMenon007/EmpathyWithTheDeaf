@@ -82,14 +82,14 @@ public class AirtableSceneController : MonoBehaviour
     void Update()
     {
         // Update text fields dynamically for each question's slider
-        question1Level.text = "Question 1 Level: " + question1Slider.value.ToString("0");
-        question2Level.text = "Question 2 Level: " + question2Slider.value.ToString("0");
-        question3Level.text = "Question 3 Level: " + question3Slider.value.ToString("0");
-        question4Level.text = "Question 4 Level: " + question4Slider.value.ToString("0");
-        question5Level.text = "Question 5 Level: " + question5Slider.value.ToString("0");
-        question6Level.text = "Question 6 Level: " + question6Slider.value.ToString("0");
-        question7Level.text = "Question 7 Level: " + question7Slider.value.ToString("0");
-        question8Level.text = "Question 8 Level: " + question8Slider.value.ToString("0");
-        question9Level.text = "Question 9 Level: " + question9Slider.value.ToString("0");
+        question1Level.text = " " + question1Slider.value.ToString("0");
+        question2Level.text = " " + question2Slider.value.ToString("0");
+        question3Level.text = " " + question3Slider.value.ToString("0");
+        question4Level.text = " " + question4Slider.value.ToString("0");
+        question5Level.text = " " + question5Slider.value.ToString("0");
+        question6Level.text = " " + question6Slider.value.ToString("0");
+        question7Level.text = " " + question7Slider.value.ToString("0");
+        question8Level.text = " " + question8Slider.value.ToString("0");
+        question9Level.text = " " + question9Slider.value.ToString("0");
     }
 }
