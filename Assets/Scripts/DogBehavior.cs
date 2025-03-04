@@ -13,7 +13,7 @@ public class DogBehavior : MonoBehaviour
     public float playerProximity = 2f;      // How close the dog must be to consider itself "at" the player
     public float followDuration = 5f;       // How long the dog follows the player during the sequence
     public float idleWaitTime = 2f;         // Pause time between moving to each target
-    public float jumpAnimationLength = 1f;  // How long the jump animation lasts
+    public float jumpAnimationLength = 0.8f;  // How long the jump animation lasts
 
     private int currentTargetIndex = 0;
     private bool sequenceStarted = false;
@@ -73,7 +73,7 @@ public class DogBehavior : MonoBehaviour
         navMeshAgent.isStopped = false;
         navMeshAgent.SetDestination(targets[currentTargetIndex].position);
 
-        while (navMeshAgent.pathPending || navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
+        while (navMeshAgent.pathPending || navMeshAgent.remainingDistance > 0.2f)
         {
             // If the player is too far away, pause and wag tail until the player is back close.
             if (IsPlayerTooFar())

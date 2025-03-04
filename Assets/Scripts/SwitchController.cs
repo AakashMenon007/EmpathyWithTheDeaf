@@ -8,11 +8,13 @@ public class SwitchController : MonoBehaviour
 {
     public ParticleSystem fireParticleSystem; // Fire particle effect
     public ParticleSystem steamParticleSystem; // Steam particle effect
-    public FireAlarmController fireAlarm;      // Fire alarm controller
-    public XRKnob knob;                        // Reference to your XRKnob
+    public GameObject fireAlarm;      // Fire alarm controller
+    public UnityEngine.XR.Content.Interaction.XRKnob knob;                        // Reference to your XRKnob
     public float steamDelay = 3f;                // Delay before steam activates
     public float alarmDelay = 10f;               // Delay before the fire alarm starts
     public bool flagSteamOn = false;             // Set to true when the knob is turned on
+
+    public GameObject fireLight; 
 
     private Coroutine steamCoroutine;
     private Coroutine alarmCoroutine;
@@ -24,6 +26,7 @@ public class SwitchController : MonoBehaviour
             fireParticleSystem.Stop();
         if (steamParticleSystem != null)
             steamParticleSystem.Stop();
+
 
         // Initialize the switch state.
         ToggleSwitch(knob.value);
@@ -38,7 +41,10 @@ public class SwitchController : MonoBehaviour
             {
                 flagSteamOn = true;
                 if (fireParticleSystem != null)
+                {
                     fireParticleSystem.Play();
+                    fireLight.SetActive(true);
+                }
 
                 if (steamCoroutine != null)
                     StopCoroutine(steamCoroutine);
@@ -53,7 +59,11 @@ public class SwitchController : MonoBehaviour
         {
             flagSteamOn = false;
             if (fireParticleSystem != null)
+            {
                 fireParticleSystem.Stop();
+                fireLight.SetActive(true);
+            }
+
             if (steamParticleSystem != null)
                 steamParticleSystem.Stop();
             if (steamCoroutine != null)
@@ -68,7 +78,7 @@ public class SwitchController : MonoBehaviour
             }
             if (fireAlarm != null)
             {
-                fireAlarm.StopAlarm();
+                fireAlarm.SetActive(false);
             }
         }
     }
@@ -84,6 +94,6 @@ public class SwitchController : MonoBehaviour
     {
         yield return new WaitForSeconds(alarmDelay);
         if (fireAlarm != null)
-            fireAlarm.StartAlarm();
+            fireAlarm.SetActive(true);
     }
 }
