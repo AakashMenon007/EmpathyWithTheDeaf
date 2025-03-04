@@ -6,83 +6,84 @@ using UnityEngine;
 
 public class SwitchController : MonoBehaviour
 {
-    public ParticleSystem fireParticleSystem;
-    public ParticleSystem steamParticleSystem;
-    public FireAlarmController fireAlarm; // Reference to the separate fire alarm script
+    public ParticleSystem fireParticleSystem; // Fire particle effect
+    public ParticleSystem steamParticleSystem; // Steam particle effect
+    public FireAlarmController fireAlarm;      // Fire alarm controller
+    public XRKnob knob;                        // Reference to your XRKnob
+    public float steamDelay = 3f;                // Delay before steam activates
+    public float alarmDelay = 10f;               // Delay before the fire alarm starts
+    public bool flagSteamOn = false;             // Set to true when the knob is turned on
 
-    // Public variables for delay times
-    public float steamDelay = 3f;   // Time delay before steam starts
-    public float alarmDelay = 10f;  // Time delay before the fire alarm starts
-
-    public bool switchOn = false;
     private Coroutine steamCoroutine;
     private Coroutine alarmCoroutine;
 
     void Start()
     {
-        fireParticleSystem.Stop();
-        steamParticleSystem.Stop();
+        // Ensure particle systems are off initially.
+        if (fireParticleSystem != null)
+            fireParticleSystem.Stop();
+        if (steamParticleSystem != null)
+            steamParticleSystem.Stop();
+
+        // Initialize the switch state.
+        ToggleSwitch(knob.value);
     }
 
-    void OnTriggerEnter(Collider other)
+    // This method is linked to the XRKnob's onValueChange event.
+    public void ToggleSwitch(float knobValue)
     {
-        ToggleSwitch();
-    }
-
-    private XRKnob knob;
-
-    public void ToggleSwitch()
-    {
-        switchOn = !switchOn;
-
-        if (switchOn && knob.value == 1)
+        if (knobValue >= 0.50f)
         {
-            fireParticleSystem.Play();
+            if (!flagSteamOn)
+            {
+                flagSteamOn = true;
+                if (fireParticleSystem != null)
+                    fireParticleSystem.Play();
 
-            if (steamCoroutine != null) StopCoroutine(steamCoroutine);
-            steamCoroutine = StartCoroutine(ActivateSteamAfterDelay(steamDelay));
+                if (steamCoroutine != null)
+                    StopCoroutine(steamCoroutine);
+                steamCoroutine = StartCoroutine(ActivateSteamAfterDelay());
 
-            if (alarmCoroutine != null) StopCoroutine(alarmCoroutine);
-            alarmCoroutine = StartCoroutine(StartFireAlarmAfterDelay(alarmDelay));
+                if (alarmCoroutine != null)
+                    StopCoroutine(alarmCoroutine);
+                alarmCoroutine = StartCoroutine(StartAlarmAfterDelay());
+            }
         }
         else
         {
-            fireParticleSystem.Stop();
-            steamParticleSystem.Stop();
-
+            flagSteamOn = false;
+            if (fireParticleSystem != null)
+                fireParticleSystem.Stop();
+            if (steamParticleSystem != null)
+                steamParticleSystem.Stop();
             if (steamCoroutine != null)
             {
                 StopCoroutine(steamCoroutine);
                 steamCoroutine = null;
             }
-
             if (alarmCoroutine != null)
             {
                 StopCoroutine(alarmCoroutine);
                 alarmCoroutine = null;
             }
-
             if (fireAlarm != null)
             {
-                fireAlarm.StopAlarm(); // Stop the fire alarm (blinking light) if running
+                fireAlarm.StopAlarm();
             }
         }
     }
 
-    IEnumerator ActivateSteamAfterDelay(float delay)
+    IEnumerator ActivateSteamAfterDelay()
     {
-        yield return new WaitForSeconds(delay);
-        steamParticleSystem.Play();
-        Debug.Log("Kettle Steam activated");
+        yield return new WaitForSeconds(steamDelay);
+        if (steamParticleSystem != null)
+            steamParticleSystem.Play();
     }
 
-    IEnumerator StartFireAlarmAfterDelay(float delay)
+    IEnumerator StartAlarmAfterDelay()
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(alarmDelay);
         if (fireAlarm != null)
-        {
-            fireAlarm.StartAlarm(); // Trigger the blinking red light alarm
-            Debug.Log("Fire Alarm activated");
-        }
+            fireAlarm.StartAlarm();
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FireAlarmController : MonoBehaviour
 {
-    public Light alarmLight; // Assign a red light in the inspector
-    public float blinkInterval = 0.5f; // Time interval for blinking
+    public Light alarmLight;         // The red alarm light
+    public float blinkInterval = 0.5f; // How fast the light blinks
 
     private Coroutine alarmCoroutine;
 
@@ -13,7 +13,7 @@ public class FireAlarmController : MonoBehaviour
     {
         if (alarmCoroutine == null)
         {
-            alarmCoroutine = StartCoroutine(BlinkAlarmLight());
+            alarmCoroutine = StartCoroutine(BlinkAlarm());
         }
     }
 
@@ -24,21 +24,16 @@ public class FireAlarmController : MonoBehaviour
             StopCoroutine(alarmCoroutine);
             alarmCoroutine = null;
         }
-
         if (alarmLight != null)
-        {
-            alarmLight.enabled = false; // Ensure light is off when stopping
-        }
+            alarmLight.enabled = false;
     }
 
-    private IEnumerator BlinkAlarmLight()
+    IEnumerator BlinkAlarm()
     {
         while (true)
         {
             if (alarmLight != null)
-            {
-                alarmLight.enabled = !alarmLight.enabled; // Toggle light
-            }
+                alarmLight.enabled = !alarmLight.enabled;
             yield return new WaitForSeconds(blinkInterval);
         }
     }

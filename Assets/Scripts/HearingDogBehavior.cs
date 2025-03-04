@@ -17,45 +17,58 @@ public class HearingDogBehavior : MonoBehaviour
     public float jumpAnimationLength = 1f;
 
     private int currentTargetIndex = 0;
-    private bool isFollowingPlayer;
-    private Coroutine behaviorRoutine;
+
+    public Coroutine behaviorRoutine;
+    public bool sequenceStarted = false;
 
     public SwitchController switchController;
 
     void Start()
     {
-        if (targets.Length > 0 && player != null)
+        // Initially, have the dog follow the player.
+        if (player != null)
         {
+            behaviorRoutine = StartCoroutine(FollowPlayer());
+        }
+    }
+
+    void Update()
+    {
+        // When the switch is activated, change the dog's behavior.
+        if (switchController != null && switchController.flagSteamOn && !sequenceStarted)
+        {
+            sequenceStarted = true;
+            if (behaviorRoutine != null)
+            {
+                StopCoroutine(behaviorRoutine);
+            }
             behaviorRoutine = StartCoroutine(DogBehaviorSequence());
         }
     }
 
     IEnumerator DogBehaviorSequence()
     {
-        // Initial tail wag
-        SetTailWag(true);
-        yield return new WaitForSeconds(2f);
-
-        if (switchController.switchOn)
+        // Loop through each target in the list.
+        for (int i = 0; i < targets.Length; i++)
         {
-            // Move to current target
+            // Move to target.
             yield return StartCoroutine(MoveToTarget());
 
-            // Follow player sequence
+            // Then follow the player until close (or for a fixed duration).
             yield return StartCoroutine(FollowPlayer());
 
-            // Prepare for next target
-            currentTargetIndex = (currentTargetIndex + 1) % targets.Length;
+            // Wait for a moment before moving to the next target.
             yield return new WaitForSeconds(idleWaitTime);
+
+            // Prepare for the next target.
+            currentTargetIndex = (currentTargetIndex + 1) % targets.Length;
         }
+        // Once finished, ensure the dog stops moving.
+        SetWalking(false);
     }
 
     IEnumerator MoveToTarget()
     {
-        // Start moving to target
-        //TriggerJump();
-        //yield return new WaitForSeconds(jumpAnimationLength / 2);
-
         SetWalking(true);
         navMeshAgent.SetDestination(targets[currentTargetIndex].position);
 
@@ -63,17 +76,15 @@ public class HearingDogBehavior : MonoBehaviour
         {
             if (IsPlayerTooFar())
             {
-                // Pause movement and wait for player
+                // Pause movement and wait for player.
                 SetWalking(false);
                 SetTailWag(true);
                 navMeshAgent.isStopped = true;
 
                 yield return new WaitUntil(() => !IsPlayerTooFar());
 
-                // Resume movement
+                // Resume movement.
                 SetTailWag(false);
-                //TriggerJump();
-                //yield return new WaitForSeconds(jumpAnimationLength / 2);
                 SetWalking(true);
                 navMeshAgent.isStopped = false;
                 navMeshAgent.SetDestination(targets[currentTargetIndex].position);
@@ -81,7 +92,7 @@ public class HearingDogBehavior : MonoBehaviour
             yield return null;
         }
 
-        // Target reached
+        // Target reached – trigger jump animation.
         SetWalking(false);
         TriggerJump();
         yield return new WaitForSeconds(jumpAnimationLength);
@@ -90,25 +101,22 @@ public class HearingDogBehavior : MonoBehaviour
     IEnumerator FollowPlayer()
     {
         SetTailWag(false);
-        //TriggerJump();
-        //yield return new WaitForSeconds(jumpAnimationLength / 2);
-
         SetWalking(true);
         float followTimer = 0f;
 
         while (followTimer < followDuration)
         {
-            if (IsPlayerTooFar())
+            navMeshAgent.SetDestination(player.position);
+
+            // If the dog is already close enough, break out to avoid circling.
+            if (!IsPlayerTooFar())
             {
-                // Interrupt following if player gets too far
                 break;
             }
 
-            navMeshAgent.SetDestination(player.position);
             followTimer += Time.deltaTime;
             yield return null;
         }
-
         SetWalking(false);
     }
 
