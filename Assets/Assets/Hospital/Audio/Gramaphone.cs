@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem; // Import the new Input System namespace
 
 public class PokeInteraction : MonoBehaviour
 {
@@ -7,14 +8,21 @@ public class PokeInteraction : MonoBehaviour
     public string animationTrigger = "PokeAnimation";  // Name of the animation trigger
 
     private bool isActive = false;  // Tracks whether the interaction is active
+    private InputAction pokeAction; // InputAction for the "Poke" button
 
-    void Update()
+    private void OnEnable()
     {
-        // Check if the "Poke" button is pressed
-        if (Input.GetButtonDown("Poke"))
-        {
-            ToggleAnimationAndAudio(); // Toggle the animation and audio
-        }
+        // Initialize the InputAction
+        pokeAction = new InputAction("Poke", binding: "<Keyboard>/p"); // Bind to the "P" key
+        pokeAction.performed += ctx => ToggleAnimationAndAudio(); // Subscribe to the performed event
+        pokeAction.Enable(); // Enable the InputAction
+    }
+
+    private void OnDisable()
+    {
+        // Disable and dispose of the InputAction
+        pokeAction.Disable();
+        pokeAction.Dispose();
     }
 
     // Function to toggle both animation and audio
