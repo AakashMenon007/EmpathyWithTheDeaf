@@ -30,7 +30,7 @@ public class DogBehavior : MonoBehaviour
     void Update()
     {
         // Check if the switch has been activated.
-        if (!sequenceStarted && switchController != null && switchController.flagSteamOn)
+        if (!sequenceStarted && switchController != null && switchController.flagFireOn)
         {
             sequenceStarted = true;
 
@@ -125,7 +125,7 @@ public class DogBehavior : MonoBehaviour
     // Initial behavior: continuously follow the player until the switch is activated.
     IEnumerator FollowPlayer()
     {
-        while (!switchController.flagSteamOn)
+        while (!switchController.flagFireOn)
         {
             if (IsPlayerTooFar())
             {

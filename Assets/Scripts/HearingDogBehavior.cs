@@ -35,7 +35,7 @@ public class HearingDogBehavior : MonoBehaviour
     void Update()
     {
         // When the switch is activated, change the dog's behavior.
-        if (switchController != null && switchController.flagSteamOn && !sequenceStarted)
+        if (switchController != null && switchController.flagFireOn && !sequenceStarted)
         {
             sequenceStarted = true;
             if (behaviorRoutine != null)

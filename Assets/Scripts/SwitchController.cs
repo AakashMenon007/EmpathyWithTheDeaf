@@ -12,7 +12,7 @@ public class SwitchController : MonoBehaviour
     public UnityEngine.XR.Content.Interaction.XRKnob knob;                        // Reference to your XRKnob
     public float steamDelay = 3f;                // Delay before steam activates
     public float alarmDelay = 10f;               // Delay before the fire alarm starts
-    public bool flagSteamOn = false;             // Set to true when the knob is turned on
+    public bool flagFireOn = false;             // Set to true when the knob is turned on
 
     public GameObject fireLight; 
 
@@ -37,9 +37,9 @@ public class SwitchController : MonoBehaviour
     {
         if (knobValue >= 0.50f)
         {
-            if (!flagSteamOn)
+            if (!flagFireOn)
             {
-                flagSteamOn = true;
+                flagFireOn = true;
                 if (fireParticleSystem != null)
                 {
                     fireParticleSystem.Play();
@@ -57,7 +57,7 @@ public class SwitchController : MonoBehaviour
         }
         else
         {
-            flagSteamOn = false;
+            flagFireOn = false;
             if (fireParticleSystem != null)
             {
                 fireParticleSystem.Stop();
