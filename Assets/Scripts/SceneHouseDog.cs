@@ -29,13 +29,14 @@ public class SceneHouseDog : MonoBehaviour
     public UnityEngine.XR.Content.Interaction.XRKnob knob;      //knob reference for to reset after trigger
 
     // This static flag persists even if you reload the scene.
-    private static bool firstTriggered = false;
+    public static bool firstTriggered = false;
 
     private void Start()
     {
         // On start, ensure these objects are in their proper initial state.
-        if (dogObject != null)
-            dogObject.SetActive(false); // Dog starts inactive
+        //if (dogObject != null)
+        //    dogObject.SetActive(false); // Dog starts inactive
+
         if (NPC != null)
             NPC.SetActive(false);       // NPC starts inactive
 
@@ -116,8 +117,8 @@ public class SceneHouseDog : MonoBehaviour
 
     private IEnumerator SecondTriggerSequence()
     {
-        if (fade != null)
-            fade.FadeOut();
+
+        fade.FadeOut();
         yield return new WaitForSeconds(2.0f);
 
         // Load the target scene.
