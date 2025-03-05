@@ -9513,6 +9513,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -6874584590210671055, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
   m_PrefabInstance: {fileID: 1279323187}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &826755743 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1351904833967977961, guid: 4e660da2419d1614198b2c073ddf863d, type: 3}
+  m_PrefabInstance: {fileID: 2609984114077390469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &857866982 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5465940246521907071, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
@@ -16561,7 +16566,7 @@ MonoBehaviour:
         m_RotationOrder: 4
       useAnimatedBendNormal: 0
     locomotion:
-      mode: 1
+      mode: 0
       weight: 1
       moveThreshold: 0.3
       animationHeader: 0
@@ -18730,7 +18735,7 @@ MonoBehaviour:
   - {fileID: 1711724291}
   - {fileID: 1001743854}
   - {fileID: 1733877355}
-  player: {fileID: 550512942}
+  player: {fileID: 969733562}
   playerProximity: 2
   followDuration: 5
   idleWaitTime: 2
@@ -20153,10 +20158,11 @@ MonoBehaviour:
   kettle: {fileID: 116226881}
   canvasToEnable: {fileID: 55652727}
   canvasToDisable: {fileID: 66485167}
+  player: {fileID: 826755743}
   playerSpawnPoint: {fileID: 408619509}
   targetSceneName: AirTableScene
   fade: {fileID: 1488514122}
-  knob: {fileID: 0}
+  knob: {fileID: 1524259195}
 --- !u!1 &1730800710
 GameObject:
   m_ObjectHideFlags: 0

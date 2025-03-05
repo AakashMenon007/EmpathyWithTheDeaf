@@ -73,7 +73,6 @@ public class SceneHouseDog : MonoBehaviour
     {
         // Fade out.
         fade.FadeOut();
-
         yield return new WaitForSeconds(3f);
 
         // Change the player's spawn position.
@@ -85,28 +84,35 @@ public class SceneHouseDog : MonoBehaviour
 
         // Enable the dog, NPC, and the designated canvas.
         if (dogObject != null)
+        {
             dogObject.SetActive(true);
-        if (NPC != null)
-            NPC.SetActive(true);
-        if (canvasToEnable != null)
-            canvasToEnable.SetActive(true);
+
+            // Re-enable the dog's NavMeshAgent after reactivation
+            DogBehavior dogScript = dogObject.GetComponent<DogBehavior>();
+            if (dogScript != null && dogScript.navMeshAgent != null)
+            {
+                dogScript.navMeshAgent.isStopped = false;
+                dogScript.navMeshAgent.enabled = true;
+            }
+        }
+
+        if (NPC != null) NPC.SetActive(true);
+        if (canvasToEnable != null) canvasToEnable.SetActive(true);
 
         // Disable the alarm and the canvas that should be hidden.
-        if (alarm != null)
-            alarm.SetActive(false);
-        if (canvasToDisable != null)
-            canvasToDisable.SetActive(false);
+        if (alarm != null) alarm.SetActive(false);
+        if (canvasToDisable != null) canvasToDisable.SetActive(false);
 
-        //kettle
-        kettle.transform.SetPositionAndRotation(kettleResetPos, kettleResetRot);        //resetting the kettle position and rotation
-        knob.value = 0;             //setting the knob value to zero
-        Debug.Log("Kettle reset==============================");
+        // Reset Kettle and Knob
+        kettle.transform.SetPositionAndRotation(kettleResetPos, kettleResetRot);
+        knob.value = 0; // Proper knob reset
 
-        // Fade in.
-        if (fade != null)
-            fade.FadeIn();
-        yield return null;
+        Debug.Log("Kettle and knob reset==============================");
+
+        // Fade in after ensuring everything is active.
+        fade.FadeIn();
     }
+
 
     private IEnumerator SecondTriggerSequence()
     {
