@@ -76,10 +76,10 @@ public class SwitchController : MonoBehaviour
                 StopCoroutine(alarmCoroutine);
                 alarmCoroutine = null;
             }
-            if (fireAlarm != null)
-            {
-                fireAlarm.SetActive(false);
-            }
+            //if (fireAlarm != null)
+            //{
+            //    fireAlarm.SetActive(false);
+            //}
         }
     }
 

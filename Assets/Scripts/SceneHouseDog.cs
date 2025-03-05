@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,10 +9,15 @@ public class SceneHouseDog : MonoBehaviour
     public GameObject dogObject;
     public GameObject NPC;
     public GameObject alarm;
+    public GameObject kettle;
+    private Vector3 kettleResetPos;
+    private quaternion kettleResetRot;
     public GameObject canvasToEnable;
     public GameObject canvasToDisable;
 
+
     [Header("Player & Spawn")]
+    public GameObject player;
     public GameObject playerSpawnPoint;
 
     [Header("Scene Transition")]
@@ -19,6 +25,8 @@ public class SceneHouseDog : MonoBehaviour
 
     [Header("Fade Settings")]
     public OVRScreenFade fade;
+
+    public UnityEngine.XR.Content.Interaction.XRKnob knob;      //knob reference for to reset after trigger
 
     // This static flag persists even if you reload the scene.
     private static bool firstTriggered = false;
@@ -32,8 +40,12 @@ public class SceneHouseDog : MonoBehaviour
             NPC.SetActive(false);       // NPC starts inactive
 
         // Assume alarm and canvasToDisable are active by default.
-        if (alarm != null)
-            alarm.SetActive(true);
+        //if (alarm != null)
+        //    alarm.SetActive(true);
+
+        kettleResetPos = kettle.transform.position;
+        kettleResetRot = kettle.transform.rotation;
+
         if (canvasToDisable != null)
             canvasToDisable.SetActive(true);
     }
@@ -47,7 +59,7 @@ public class SceneHouseDog : MonoBehaviour
             {
                 firstTriggered = true;
                 // Pass the player's collider so we can reposition the player.
-                StartCoroutine(FirstTriggerSequence(other));
+                StartCoroutine(FirstTriggerSequence());
             }
             // Second trigger: load target scene.
             else
@@ -57,17 +69,17 @@ public class SceneHouseDog : MonoBehaviour
         }
     }
 
-    private IEnumerator FirstTriggerSequence(Collider playerCollider)
+    private IEnumerator FirstTriggerSequence()
     {
         // Fade out.
-        if (fade != null)
-            fade.FadeOut();
-        yield return new WaitForSeconds(2.0f);
+        fade.FadeOut();
+
+        yield return new WaitForSeconds(3f);
 
         // Change the player's spawn position.
         if (playerSpawnPoint != null)
         {
-            playerCollider.transform.position = playerSpawnPoint.transform.position;
+            player.transform.position = playerSpawnPoint.transform.position;
             Debug.Log("Player moved to spawn point: " + playerSpawnPoint.transform.position);
         }
 
@@ -84,6 +96,11 @@ public class SceneHouseDog : MonoBehaviour
             alarm.SetActive(false);
         if (canvasToDisable != null)
             canvasToDisable.SetActive(false);
+
+        //kettle
+        kettle.transform.SetPositionAndRotation(kettleResetPos, kettleResetRot);        //resetting the kettle position and rotation
+        knob.value = 0;             //setting the knob value to zero
+        Debug.Log("Kettle reset==============================");
 
         // Fade in.
         if (fade != null)
@@ -108,4 +125,5 @@ public class SceneHouseDog : MonoBehaviour
         }
         yield return null;
     }
+
 }
