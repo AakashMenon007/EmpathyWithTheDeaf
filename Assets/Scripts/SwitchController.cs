@@ -76,10 +76,10 @@ public class SwitchController : MonoBehaviour
                 StopCoroutine(alarmCoroutine);
                 alarmCoroutine = null;
             }
-            if (fireAlarm != null)
-            {
-                fireAlarm.SetActive(false);
-            }
+            //if (fireAlarm != null)
+            //{
+            //    fireAlarm.SetActive(false);
+            //}
         }
     }
 
@@ -93,7 +93,7 @@ public class SwitchController : MonoBehaviour
     IEnumerator StartAlarmAfterDelay()
     {
         yield return new WaitForSeconds(alarmDelay);
-        if (fireAlarm != null)
+        if (fireAlarm != null && SceneHouseDog.firstTriggered == false)
             fireAlarm.SetActive(true);
     }
 }

@@ -11,18 +11,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Audio First scene.unity
     guid: 18ee7fffae15a4249ba73c29c2fba3a6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Hospital.unity
     guid: b7ef78e185f83494eb73608542fc2aa0
-  - enabled: 0
-    path: Assets/Scenes/AirTableScene.unity
-    guid: 7ab63b2bba86e54488383f3a6d4ecfe3
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/SceneHouse.unity
     guid: fd61199c55e4fba4696b8a96a66e1739
   - enabled: 1
-    path: Assets/Scenes/Post Hospital.unity
-    guid: 030c6998ab08c7e46b9babf01eae7be6
+    path: Assets/Scenes/AirTableScene.unity
+    guid: 7ab63b2bba86e54488383f3a6d4ecfe3
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

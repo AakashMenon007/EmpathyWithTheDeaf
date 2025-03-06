@@ -4,16 +4,16 @@ using System.Collections;
 
 public class DogBehavior : MonoBehaviour
 {
-    public NavMeshAgent navMeshAgent;   // Your dog's NavMeshAgent component
-    public Animator animator;           // The dog's Animator component
+    public NavMeshAgent navMeshAgent;   // Dog's NavMeshAgent component
+    public Animator animator;           // Dog's Animator component
     public Transform[] targets;         // List of target positions for the sequence
-    public Transform player;            // The player the dog initially follows
+    public Transform player;            // The player that the dog follows
 
     [Header("Settings")]
-    public float playerProximity = 2f;      // How close the dog must be to consider itself "at" the player
-    public float followDuration = 5f;       // How long the dog follows the player during the sequence
-    public float idleWaitTime = 2f;         // Pause time between moving to each target
-    public float jumpAnimationLength = 0.8f;  // How long the jump animation lasts
+    public float playerProximity = 2f;      // Distance considered “close enough” to the player
+    public float followDuration = 5f;       // How long to follow the player during the sequence
+    public float idleWaitTime = 2f;         // Pause between moving to each target
+    public float jumpAnimationLength = 0.8f;  // Duration of the jump animation
 
     private int currentTargetIndex = 0;
     private bool sequenceStarted = false;
@@ -23,18 +23,39 @@ public class DogBehavior : MonoBehaviour
 
     void Start()
     {
-        // Start by following the player continuously until the switch is activated.
+        // Reset the switch flag so the dog starts in follow-player mode
+        if (switchController != null)
+        {
+            switchController.flagFireOn = false;
+        }
+        sequenceStarted = false;
+        navMeshAgent.isStopped = false;
+        // Start following the player continuously
         behaviorRoutine = StartCoroutine(FollowPlayer());
+        Debug.Log("Starting the dog to follow player");
+    }
+
+    void OnEnable()
+    {
+        // Optionally ensure that when the GameObject becomes active,
+        // we restart following the player if no sequence is running.
+        if (!sequenceStarted)
+        {
+            if (behaviorRoutine != null)
+            {
+                StopCoroutine(behaviorRoutine);
+            }
+            behaviorRoutine = StartCoroutine(FollowPlayer());
+            Debug.Log("restart following the player if no sequence is running");
+        }
     }
 
     void Update()
     {
-        // Check if the switch has been activated.
+        // If the switch has been activated, start the behavior sequence.
         if (!sequenceStarted && switchController != null && switchController.flagFireOn)
         {
             sequenceStarted = true;
-
-            // Stop the initial follow routine and start the sequence.
             if (behaviorRoutine != null)
             {
                 StopCoroutine(behaviorRoutine);
@@ -43,22 +64,16 @@ public class DogBehavior : MonoBehaviour
         }
     }
 
-    // Sequence: Move to target, then follow player briefly, pause, and then move to next target.
+    // Sequence: move to a target, then follow the player briefly, then repeat.
     IEnumerator DogBehaviorSequence()
     {
-        // Loop through each target in the list.
         for (int i = 0; i < targets.Length; i++)
         {
-            // Move to the current target.
             yield return StartCoroutine(MoveToTarget());
-
             // Then follow the player until close or for a fixed duration.
             yield return StartCoroutine(FollowPlayerSequence());
-
             // Wait for a moment before moving to the next target.
             yield return new WaitForSeconds(idleWaitTime);
-
-            // Cycle to the next target.
             currentTargetIndex = (currentTargetIndex + 1) % targets.Length;
         }
         // After the sequence, ensure the dog stops moving.
@@ -66,7 +81,7 @@ public class DogBehavior : MonoBehaviour
         navMeshAgent.isStopped = true;
     }
 
-    // Moves the dog toward the current target.
+    // Move toward the current target, pausing if the player is too far away.
     IEnumerator MoveToTarget()
     {
         SetWalking(true);
@@ -99,7 +114,7 @@ public class DogBehavior : MonoBehaviour
         yield return new WaitForSeconds(jumpAnimationLength);
     }
 
-    // The dog's behavior when following the player during the sequence.
+    // Follow the player for a fixed duration or until close enough.
     IEnumerator FollowPlayerSequence()
     {
         SetTailWag(false);
@@ -122,10 +137,10 @@ public class DogBehavior : MonoBehaviour
         SetWalking(false);
     }
 
-    // Initial behavior: continuously follow the player until the switch is activated.
+    // Continuous follow behavior until the switch is activated.
     IEnumerator FollowPlayer()
     {
-        while (!switchController.flagFireOn)
+        while (switchController != null && !switchController.flagFireOn)
         {
             if (IsPlayerTooFar())
             {
@@ -140,24 +155,24 @@ public class DogBehavior : MonoBehaviour
         }
     }
 
-    // Returns true if the dog is farther than playerProximity away from the player.
+    // Returns true if the dog is farther than the allowed proximity from the player.
     bool IsPlayerTooFar() =>
         Vector3.Distance(transform.position, player.position) > playerProximity;
 
-    // Triggers the jump animation.
+    // Trigger jump animation.
     void TriggerJump()
     {
         animator.ResetTrigger("Jump");
         animator.SetTrigger("Jump");
     }
 
-    // Sets the walking animation.
+    // Set walking animation state.
     void SetWalking(bool state)
     {
         animator.SetBool("isWalking", state);
     }
 
-    // Sets the tail wag animation.
+    // Set tail wag animation state.
     void SetTailWag(bool state)
     {
         animator.SetBool("TailWag", state);

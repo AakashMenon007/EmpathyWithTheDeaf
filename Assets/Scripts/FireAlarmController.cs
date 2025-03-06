@@ -6,35 +6,16 @@ public class FireAlarmController : MonoBehaviour
 {
     public Light alarmLight;         // The red alarm light
     public float blinkInterval = 0.5f; // How fast the light blinks
+    private float timer = 0f;          // Timer to track the blink interval
 
-    private Coroutine alarmCoroutine;
-
-    public void StartAlarm()
+    private void Update()
     {
-        if (alarmCoroutine == null)
-        {
-            alarmCoroutine = StartCoroutine(BlinkAlarm());
-        }
-    }
+        timer += Time.deltaTime;
 
-    public void StopAlarm()
-    {
-        if (alarmCoroutine != null)
+        if (timer > blinkInterval)
         {
-            StopCoroutine(alarmCoroutine);
-            alarmCoroutine = null;
-        }
-        if (alarmLight != null)
-            alarmLight.enabled = false;
-    }
-
-    IEnumerator BlinkAlarm()
-    {
-        while (true)
-        {
-            if (alarmLight != null)
-                alarmLight.enabled = !alarmLight.enabled;
-            yield return new WaitForSeconds(blinkInterval);
+            alarmLight.enabled = !alarmLight.enabled;
+            timer = 0f;
         }
     }
 }
