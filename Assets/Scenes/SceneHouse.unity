@@ -22099,13 +22099,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563722755}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c935d7f89695f114f8d4c274f58fcb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
-  startSimulation: 1
+  duration: 10
+  startSimulation: 0
   maxDistortion: 0.8
   minCutoffFrequency: 300
   echoDelay: 500
@@ -22254,7 +22254,7 @@ AudioSource:
   m_GameObject: {fileID: 2060258319}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8469816404921441559, guid: 7dcfc9de67439d24481608b452501cc3, type: 2}
   m_audioClip: {fileID: 8300000, guid: ad667cee8f4d30348b28d2ae9ff87964, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
