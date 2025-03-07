@@ -7,7 +7,7 @@ using Yarn.Unity;
 public class YarnCommands : MonoBehaviour
 {
     public DialogueRunner dialogueRunner;
-    public GameObject stageOneCircle, stageTwoCircle, stageThreeObject;
+    public GameObject stageOneCircle, stageTwoCircle, stageThreeCircle;
 
     public void StartNextOnboardingStage(string nextOnboardingStage)
     {
@@ -27,22 +27,9 @@ public class YarnCommands : MonoBehaviour
     [YarnCommand("setup_stage_three")]
     public void SetupStageThree()
     {
-        Debug.Log("Executing setup_stage_three command.");
-        stageTwoCircle.SetActive(false);
-        stageThreeObject.SetActive(true);
-    }
-
-    [YarnCommand("restart_onboarding")]
-    public void RestartOnboarding()
-    {
-        Debug.Log("Restarting onboarding.");
-        SceneManager.LoadScene("onboardingDemo");
-    }
-
-    [YarnCommand("begin_main_experience")]
-    public void BeginMainExperience()
-    {
-        Debug.Log("Beginning main experience.");
-        SceneManager.LoadScene(1);
+        Debug.Log("Executing se" +
+            "tup_stage_three command.");
+        stageOneCircle.SetActive(false);
+        stageTwoCircle.SetActive(true);
     }
 }

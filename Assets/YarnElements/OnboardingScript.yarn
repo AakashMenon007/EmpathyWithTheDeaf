@@ -36,33 +36,7 @@ Well done. Interaction is key in this experience. #line:7
 
 Look to your left. You’ll find a table with objects resting upon it. Reach out with your hand and press the trigger button to pick up an object. Experiment by picking up and placing down a few items. #line:8
 
-Continue once you’re comfortable. #line:9 
+Once you are comfortable with the interactions and movement controls, proceed to the holographic circle in front of you to begin the experience. #line:9 
 
-===
-title: OnboardingStageFour
-tags:
----
-<<setup_stage_four ScriptHandler>>
-
-You’re doing great. Now, let’s combine movement and interaction. #line:10
-
-Ahead of you is a glowing artifact. Move towards it using your left thumbstick and pick it up with the trigger button. Once picked up, examine it closely. Take note of its intricate design – details like this will guide you throughout your journey. #line:11 
-
-When ready, proceed. #line:12 
-
-===
-title: OnboardingComplete
-tags:
----
-Congratulations, traveler. You’ve completed the onboarding exercises. #line:13
-
-From this moment on, the path forward is yours to explore. Choose how you wish to proceed: 
-
--> Begin Onboarding Again #line:14
-    <<restart_onboarding ScriptHandler>>
--> Begin the Main Experience #line:15 
-    <<begin_main_experience ScriptHandler>>
-
-Prepare yourself. The Experience begins now. #line:16
 
 ===
