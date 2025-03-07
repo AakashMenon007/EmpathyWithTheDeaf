@@ -2319,8 +2319,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kettle is allready filled, place it on the stove and turn on the knob for
-    the fire.
+  m_text: 'Kettle is allready filled, place it on the stove and turn the knob to
+    start fire.
+
+
+    Then pick up phone '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17695,6 +17698,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1129332513}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1129332516}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1129332514}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1129332515}
   m_SourcePrefab: {fileID: 100100000, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
 --- !u!1001 &1284416022
 PrefabInstance:
@@ -22465,13 +22477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c935d7f89695f114f8d4c274f58fcb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
-  startSimulation: 1
-  maxDistortion: 0.8
-  minCutoffFrequency: 300
-  echoDelay: 500
-  echoDecay: 0.5
-  targetAudioListener: {fileID: 2054115089}
 --- !u!1 &2060258319
 GameObject:
   m_ObjectHideFlags: 0
@@ -23011,7 +23016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 4.214, y: 2.344}
+  m_AnchoredPosition: {x: 4.264, y: 2.344}
   m_SizeDelta: {x: 1080, y: 720}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2104239406
