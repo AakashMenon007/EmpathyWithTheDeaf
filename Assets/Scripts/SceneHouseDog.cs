@@ -8,8 +8,10 @@ public class SceneHouseDog : MonoBehaviour
     [Header("GameObject References")]
     public GameObject dogObject;
     public GameObject NPC;
+    public GameObject packageBox;
     public GameObject alarm;
     public GameObject kettle;
+    public GameObject kettleCanvas;
     private Vector3 kettleResetPos;
     private quaternion kettleResetRot;
     public GameObject canvasToEnable;
@@ -74,7 +76,8 @@ public class SceneHouseDog : MonoBehaviour
     {
         // Fade out.
         fade.FadeOut();
-        yield return new WaitForSeconds(3f);
+        Debug.Log("Fading out==============================");
+        yield return new WaitForSeconds(2.5f);
 
         // Change the player's spawn position.
         if (playerSpawnPoint != null)
@@ -97,12 +100,14 @@ public class SceneHouseDog : MonoBehaviour
             }
         }
 
+        if (packageBox != null) packageBox.SetActive(true);
         if (NPC != null) NPC.SetActive(true);
         if (canvasToEnable != null) canvasToEnable.SetActive(true);
 
         // Disable the alarm and the canvas that should be hidden.
         if (alarm != null) alarm.SetActive(false);
         if (canvasToDisable != null) canvasToDisable.SetActive(false);
+        if (kettleCanvas != null) kettleCanvas.SetActive(false);
 
         // Reset Kettle and Knob
         kettle.transform.SetPositionAndRotation(kettleResetPos, kettleResetRot);
@@ -111,15 +116,16 @@ public class SceneHouseDog : MonoBehaviour
         Debug.Log("Kettle and knob reset==============================");
 
         // Fade in after ensuring everything is active.
+        yield return new WaitForSeconds(3f);
         fade.FadeIn();
     }
 
 
     private IEnumerator SecondTriggerSequence()
     {
-
+        yield return new WaitForSeconds(5f);
         fade.FadeOut();
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(4.0f);
 
         // Load the target scene.
         if (!string.IsNullOrEmpty(targetSceneName))
