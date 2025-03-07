@@ -1,15 +1,14 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // Required for scene management
+using UnityEngine.SceneManagement;
 
-public class SceneTransition2 : MonoBehaviour
+public class SceneTransitions : MonoBehaviour
 {
-    // This method will be linked to the OnClick event of the button
-    public void LoadNextScene()
-    {
-        // Get the current active scene's build index
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    // Name of the scene to load
+    public string sceneName;
 
-        // Load the next scene based on the build index
-        SceneManager.LoadScene(currentSceneIndex + 1);
+    // Function to be called on button press
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
