@@ -12,7 +12,7 @@ public class DogBehavior : MonoBehaviour
     [Header("Settings")]
     public float playerProximity = 2f;      // Distance considered “close enough” to the player
     public float followDuration = 5f;       // How long to follow the player during the sequence
-    public float idleWaitTime = 2f;         // Pause between moving to each target
+    public float idleWaitTime = 7f;         // Pause between moving to each target
     public float jumpAnimationLength = 0.8f;  // Duration of the jump animation
 
     private int currentTargetIndex = 0;
@@ -70,10 +70,13 @@ public class DogBehavior : MonoBehaviour
         for (int i = 0; i < targets.Length; i++)
         {
             yield return StartCoroutine(MoveToTarget());
-            // Then follow the player until close or for a fixed duration.
-            yield return StartCoroutine(FollowPlayerSequence());
+
             // Wait for a moment before moving to the next target.
             yield return new WaitForSeconds(idleWaitTime);
+            // Then follow the player until close or for a fixed duration.
+            yield return StartCoroutine(FollowPlayerSequence());
+            Debug.Log("Following player after target reached,,,");
+
             currentTargetIndex = (currentTargetIndex + 1) % targets.Length;
         }
         // After the sequence, ensure the dog stops moving.
