@@ -32,6 +32,9 @@ public class ReverseDeafnessSimulatorListener : MonoBehaviour
     private AudioEchoFilter echoFilter;
     private float elapsedTime = 0f;
 
+    public bool leftAidAttached;
+    public bool rightAidAttached;
+
     void Start()
     {
         if (targetAudioListener == null)
@@ -112,12 +115,18 @@ public class ReverseDeafnessSimulatorListener : MonoBehaviour
 
     private bool AreBothHearingAidsAttached()
     {
-        // Use hasSelection to check if there is any active selection on the interactors
-        bool isLeftAttached = leftHearingAidSocket.hasSelection;
-        bool isRightAttached = rightHearingAidSocket.hasSelection;
+        //// Use hasSelection to check if there is any active selection on the interactors
+        //bool isLeftAttached = leftHearingAidSocket.hasSelection;
+        //bool isRightAttached = rightHearingAidSocket.hasSelection;
 
-        return isLeftAttached && isRightAttached;
+        return leftAidAttached && rightAidAttached;
     }
+
+    public void LeftAidAttached()
+    { leftAidAttached = true; }
+
+    public void RightAidAttached()
+    { rightAidAttached = true; }
 
 
     public void ReverseDeafnessSimulation()
