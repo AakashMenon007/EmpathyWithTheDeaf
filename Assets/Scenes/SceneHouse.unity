@@ -2319,11 +2319,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Kettle is allready filled, place it on the stove and turn the burner on.
-
-
-    And
-    then get your phone..'
+  m_text: Kettle is allready filled, place it on the stove and turn on the knob for
+    the fire.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16483,7 +16480,7 @@ MonoBehaviour:
         m_RotationOrder: 4
       useAnimatedBendNormal: 0
     locomotion:
-      mode: 0
+      mode: 1
       weight: 1
       moveThreshold: 0.3
       animationHeader: 0
@@ -16762,7 +16759,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1129332508}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &1160234425
 GameObject:
   m_ObjectHideFlags: 0
@@ -17658,7 +17655,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: b3171c43b3bf04f4e8092f705ecc7f58, type: 2}
+      objectReference: {fileID: 9100000, guid: f2a9c62000380a74ca18c28e084caceb, type: 2}
     - target: {fileID: 6341119541397085964, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.00000075365597
@@ -17698,15 +17695,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1129332513}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1129332514}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1129332516}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1129332515}
   m_SourcePrefab: {fileID: 100100000, guid: 7f5959407346e4247946ac6a5aaf397c, type: 3}
 --- !u!1001 &1284416022
 PrefabInstance:
@@ -19543,6 +19531,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1526584519499179024, guid: 22810e8990ba1904588618a59fe9872e, type: 3}
   m_PrefabInstance: {fileID: 1598853961}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1598853963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7084653548340160808, guid: 22810e8990ba1904588618a59fe9872e, type: 3}
+  m_PrefabInstance: {fileID: 1598853961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0baafb60a6d29814583b63160b0617c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1623937391
 GameObject:
   m_ObjectHideFlags: 0
@@ -20024,6 +20023,8 @@ GameObject:
   - component: {fileID: 1716995030}
   - component: {fileID: 1716995029}
   - component: {fileID: 1716995033}
+  - component: {fileID: 1716995034}
+  - component: {fileID: 1716995035}
   m_Layer: 0
   m_Name: SceneTrigger
   m_TagString: Untagged
@@ -20142,6 +20143,34 @@ MonoBehaviour:
   targetSceneName: AirTableScene
   fade: {fileID: 1488514122}
   knob: {fileID: 1524259195}
+--- !u!114 &1716995034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716995028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0baafb60a6d29814583b63160b0617c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOnStart: 1
+  fadeDuration: 2
+  fadeColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &1716995035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716995028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e589e4c1ea617854cbb7e167956ec2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadescreen: {fileID: 1598853963}
 --- !u!1 &1730800710
 GameObject:
   m_ObjectHideFlags: 0
@@ -22436,6 +22465,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c935d7f89695f114f8d4c274f58fcb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 2
+  startSimulation: 1
+  maxDistortion: 0.8
+  minCutoffFrequency: 300
+  echoDelay: 500
+  echoDecay: 0.5
+  targetAudioListener: {fileID: 2054115089}
 --- !u!1 &2060258319
 GameObject:
   m_ObjectHideFlags: 0
