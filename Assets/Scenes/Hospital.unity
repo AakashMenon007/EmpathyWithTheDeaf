@@ -945,7 +945,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5744,11 +5744,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1767192433, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
   m_PrefabInstance: {fileID: 386052257}
   m_PrefabAsset: {fileID: 0}
---- !u!81 &1676165341 stripped
-AudioListener:
-  m_CorrespondingSourceObject: {fileID: 1767192437, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-  m_PrefabInstance: {fileID: 386052257}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1676165343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5761,17 +5756,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c935d7f89695f114f8d4c274f58fcb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 20
-  startSimulation: 1
-  maxDistortion: 0.8
-  minCutoffFrequency: 300
-  echoDelay: 500
-  echoDecay: 0.5
-  targetAudioListener: {fileID: 1676165341}
-  distortionFilter: {fileID: 0}
-  lowPassFilter: {fileID: 0}
-  echoFilter: {fileID: 0}
-  elapsedTime: 0
 --- !u!114 &1676165344
 MonoBehaviour:
   m_ObjectHideFlags: 0
