@@ -226,4 +226,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For inquiries or further information, please contact \[Your Name] at \[[aakashmenon17@gmail.com](mailto:your.email@example.com)].
+For inquiries or further information, please contact me at \[[aakashmenon17@gmail.com](mailto:your.email@example.com)].
