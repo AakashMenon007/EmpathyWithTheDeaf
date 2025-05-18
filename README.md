@@ -1,10 +1,10 @@
-# The Silent Awakening: A VR Empathy Project for the Deaf Community
+# **The Silent Awakening: A VR Empathy Project for the Deaf Community**
 
 The Silent Awakening is an immersive VR experience designed to foster empathy for the deaf community. Through innovative storytelling and interactive scenes, this project provides users with a deep understanding of the challenges faced by individuals who are deaf or hard of hearing. The project includes elements such as hospital scenarios, deafness simulation, sign language tutorials, and interactions with NPCs, alongside future plans for real-time gesture recognition for sign language learning.
 
 ---
 
-## Table of Contents
+## **Table of Contents**
 
 1. [Introduction](#introduction)
 2. [Features](#features)
@@ -26,6 +26,11 @@ The Silent Awakening is an immersive VR experience designed to foster empathy fo
 ## Introduction
 
 The Silent Awakening aims to bridge the communication gap between the hearing and deaf communities by offering an interactive and empathetic VR experience. Users will navigate various scenarios, each highlighting the impact of deafness on everyday life. From hospital environments to sign language tutorials, this VR experience challenges users to see the world through the eyes of someone who is deaf, encouraging greater empathy and understanding.
+![Screenshot 2025-05-18 124636](https://github.com/user-attachments/assets/f655e565-bdcf-42fc-a523-e3d31b3ce41f)
+
+
+
+
 
 ---
 
@@ -55,9 +60,10 @@ The Silent Awakening aims to bridge the communication gap between the hearing an
 
 1. **Clone the repository:**
 
-   ```bash
+   
+bash
    git clone https://github.com/yourusername/The-Silent-Awakening.git
-   ```
+
 
 2. **Open the project in Unity:**
 
@@ -70,7 +76,7 @@ The Silent Awakening aims to bridge the communication gap between the hearing an
 
 4. **Set up the XR environment:**
 
-   * Go to `Edit > Project Settings > XR Plug-in Management` and ensure that the XR settings are properly configured for your target VR device.
+   * Go to Edit > Project Settings > XR Plug-in Management and ensure that the XR settings are properly configured for your target VR device.
 
 5. **Build and deploy:**
 
@@ -83,23 +89,42 @@ The Silent Awakening aims to bridge the communication gap between the hearing an
 1. **Introduction Scene:**
 
    * The user enters a dark, immersive environment where they begin to experience the world without hearing. Sound is replaced with visual indicators (vibrations, lighting, etc.) to simulate deafness.
+     ![Screenshot 2025-05-18 124745](https://github.com/user-attachments/assets/554e6e9d-c18f-456d-9bb5-eb87a7e56576)
+
+     
 
 2. **Hospital Scene:**
 
    * *Pre-Scenario:* The user finds themselves in a hospital waiting room. Challenges include reading lips and understanding medical staff without hearing.
-   * *Post-Scenario:* The user experiences a medical procedure where communication is key, highlighting the barriers to effective healthcare for the deaf.
+  ![Screenshot 2025-05-18 125419](https://github.com/user-attachments/assets/7a40eeb5-25e1-4b94-bba3-e7e223cedb17)
 
-3. **Sign Language Tutorial:**
+
+
+
+   * *Post-Scenario:* The user experiences a medical procedure where communication is key, highlighting the barriers to effective healthcare for the deaf.
+     ![Screenshot 2025-03-07 125129](https://github.com/user-attachments/assets/5f13439b-f2d0-4e12-84c2-44c25b1dde73)
+
+     ![Screenshot 2025-03-07 125106](https://github.com/user-attachments/assets/98d5b63b-50ca-4247-b100-d68e9c35ef7f)
+
+
+2. **Sign Language Tutorial:**
 
    * A guided interactive tutorial teaches basic sign language, offering real-time feedback to help users improve their skills.
+  
+     ![Screenshot 2025-03-07 124514](https://github.com/user-attachments/assets/43166fc5-1a1d-4d40-9f55-a3f946242da1)
 
-4. **Hearing Aid Simulation:**
+
+3. **Hearing Aid Simulation:**
 
    * The user can interact with a virtual hearing aid device to simulate how sound might be experienced by someone with hearing loss.
 
-5. **Support Dog Interaction:**
+     ![Screenshot 2025-03-07 132257](https://github.com/user-attachments/assets/2ab554da-3df4-45c7-9058-7947b6642662)
+
+
+4. **Support Dog Interaction:**
 
    * A virtual support dog accompanies the user, offering emotional and practical support in the environment.
+   ![Screenshot 2025-05-18 125757](https://github.com/user-attachments/assets/f5e84e6b-5589-407c-b0e3-885d1a264f95)
 
 ---
 
@@ -120,9 +145,10 @@ The Silent Awakening aims to bridge the communication gap between the hearing an
 
 1. Clone the repository:
 
-   ```bash
+   
+bash
    git clone https://github.com/yourusername/The-Silent-Awakening.git
-   ```
+
 
 2. Open the project in Unity (Unity 2023.1 or later required).
 
@@ -132,7 +158,7 @@ The Silent Awakening aims to bridge the communication gap between the hearing an
 
 5. Build the project for your target VR device:
 
-   * Go to `File > Build Settings`, select your platform, and click Build and Run.
+   * Go to File > Build Settings, select your platform, and click Build and Run.
 
 ---
 
@@ -159,19 +185,22 @@ We welcome contributions to *The Silent Awakening*. To contribute:
 1. Fork the repository.
 2. Create a new branch:
 
-   ```bash
+   
+bash
    git checkout -b feature-name
-   ```
+
 3. Commit your changes:
 
-   ```bash
+   
+bash
    git commit -am 'Add new feature'
-   ```
+
 4. Push to the branch:
 
-   ```bash
+   
+bash
    git push origin feature-name
-   ```
+
 5. Open a pull request to merge your changes.
 
 ---
@@ -184,4 +213,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-For inquiries or further information, please contact \[Your Name] at \[[your.email@example.com](mailto:your.email@example.com)].
+For inquiries or further information, please contact \[Your Name] at \[[aakashmenon17@gmail.com](mailto:your.email@example.com)].
