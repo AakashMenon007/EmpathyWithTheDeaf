@@ -26,6 +26,7 @@ The Silent Awakening is an immersive VR experience designed to foster empathy fo
 ## Introduction
 
 The Silent Awakening aims to bridge the communication gap between the hearing and deaf communities by offering an interactive and empathetic VR experience. Users will navigate various scenarios, each highlighting the impact of deafness on everyday life. From hospital environments to sign language tutorials, this VR experience challenges users to see the world through the eyes of someone who is deaf, encouraging greater empathy and understanding.
+
 ![Screenshot 2025-05-18 124636](https://github.com/user-attachments/assets/f655e565-bdcf-42fc-a523-e3d31b3ce41f)
 
 
